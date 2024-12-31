@@ -1,33 +1,90 @@
-import React from "react";
-import figure from "../Assets/figure.png";
-import Right from "../Assets/right.png";
+import React, { useState } from "react";
+import pic from "../Assets/tof.png";
 
+function PhoneNumberInput() {
+    const [phoneNumber, setPhoneNumber] = useState('');
+
+    const handleInputChange = (e) => {
+        setPhoneNumber(e.target.value.replace(/[^0-9]/g, ''));
+    };
+
+    return (
+        <div className="input-box">
+            <span className="details">Phone Number</span>
+            <input
+                type="text"
+                placeholder="Your Phone Number"
+                value={phoneNumber}
+                onChange={handleInputChange}
+                required
+            />
+        </div>
+    );
+}
 
 const Talk = () => {
     return (
-        <div class="hi-container">
-            <div class="hi-container-label">
-                <h1>Say Hi!</h1>
-                <p>We'd like to talk with you.</p>
-                <label for="name" class="label-hi">My name is:</label>
-                <input type="text" id="name" name="name" required class="input-hi"></input>
+        <main>
+            <div className="profile-container">
+                <div className="profile-header">
+                    <img src={pic} alt="Profile Picture" className="profile-pic" />
 
-                <label for="lookingfor" class="label-hi">I'm looking for:</label>
-                <input type="text" id="lookingfor" name="lookingfor" class="input-hi"></input>
-
-                <label for="message" class="label-hi">Your message:</label>
-                <textarea id="message" name="message" rows="4" class="textarea-hi"></textarea>
-
-                <button type="submit" class="button-hi">Send Message</button>
-            </div>
-            <div class="hi-container-align">
-                <div class="hi-icon-wrapper">
-                    <img src={Right} alt="Right" class="hi-icon-one"></img>
-                    <img src={figure} alt="figure" class="hi-icon-two"></img>
+                    <div className="profile-info">
+                        <h2>Alexa Rawles</h2>
+                        <p>alexarawles@gmail.com</p>
+                    </div>
+                    <button type="button" className="edit-profile-btn">
+                        <p>Edit Profile</p>
+                    </button>
                 </div>
-            </div>
-        </div>
+                <div className="container">
+                    <div className="content">
+                        <form action="#">
+                            <div className="user-details">
+                                <div className="input-box">
+                                    <span className="details">Full Name</span>
+                                    <input type="text" placeholder="Your First Name" required />
+                                </div>
+                                <div className="input-box">
+                                    <span className="details">Role</span>
+                                    <input type="text" placeholder="Your Role" required />
+                                </div>
+                                <div className="input-box">
+                                    <span className="details">Your Gender</span>
+                                    <select required>
+                                        <option value="">Your Gender</option>
+                                        <option value="male">Homme</option>
+                                        <option value="female">Femme</option>
+                                    </select>
+                                </div>
 
-    )
-}
+                                <div className="input-box">
+                                    <span className="details">Stripe Code</span>
+                                    <input type="text" placeholder="Your Stripe Code" required />
+                                </div>
+
+                                <PhoneNumberInput />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <h2 className="email-my">My Email Address</h2>
+                <div className="profile-header">
+                    <div className="email-co">
+                        <div className="icon"></div>
+                    </div>
+
+                    <div className="profile-infos">
+                        <p className="p-p">alexarawles@gmail.com</p>
+                        <p>1 month ago</p>
+                    </div>
+                </div>
+                <button type="button" className="switch-admin-btn">
+                    <p>Switch to admin</p>
+                </button>
+            </div>
+        </main>
+    );
+};
+
 export default Talk;

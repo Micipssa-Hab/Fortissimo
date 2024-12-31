@@ -1,55 +1,27 @@
-import React, { useState } from "react";
-import Logo from "../Assets/blu.png";
-import { BsCart2 } from "react-icons/bs";
-import { HiOutlineBars3 } from "react-icons/hi2";
-
-import HomeIcon from "@mui/icons-material/Home";
-import InfoIcon from "@mui/icons-material/Info";
-import CommentRoundedIcon from "@mui/icons-material/CommentRounded";
-import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
+import React from "react";
 
 
 const Navbar = () => {
-    const [openMenu, setOpenMenu] = useState(false)
-    const menuOptions = [
-        {
-            text: "Home",
-            icon: <HomeIcon />,
-        },
-        {
-            text: "Hall Expo",
-            icon: <CommentRoundedIcon />,
-        },
-        {
-            text: "About Us",
-            icon: <InfoIcon />,
-        },
-        {
-            text: "Sign in",
-            icon: <PhoneRoundedIcon />,
-        },
 
-    ]
+    return <header>
+        <h2 class="nav-logo-container">Logo</h2>
 
 
-    return <nav>
-        <div className="nav-logo-container">
-            <img src={Logo} alt="" />
-        </div>
-        <div className="navbar-links-container">
-            <a href="">Home</a>
-            <a href="">Hall Expo</a>
-            <a href="">About Us</a>
-            <a href="">Sign In</a>
 
-            <button className="primary-button">Sign Up</button>
-        </div>
-        <div className="navbar-menu-container">
-            <HiOutlineBars3 onClick={() => setOpenMenu(true)} />
-        </div>
+        <nav className="navigation">
+            <a href="#" role="button" onClick={(e) => { e.preventDefault(); console.log("Go to Home"); }}>Home</a>
+            <a href="#" role="button" onClick={(e) => { e.preventDefault(); console.log("Go to Hall Expo"); }}>Hall Expo</a>
+            <a href="#" role="button" onClick={(e) => { e.preventDefault(); console.log("Go to About Us"); }}>About Us</a>
+            <a href="#" role="button" onClick={(e) => { e.preventDefault(); console.log("Sign In"); }}>Sign In</a>
+            <a href="#" className="btnLogin-popup" role="button" onClick={(e) => { e.preventDefault(); console.log("Sign Up"); }}>Sign Up</a>
+        </nav>
 
-    </nav>;
+
+
+
+    </header>;
+
 
 };
 
-export default Navbar
+export default Navbar;
